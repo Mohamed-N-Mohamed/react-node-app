@@ -4,11 +4,15 @@ const app = express();
 app.use(express.json());
 
 app.get("/user", (req, res) => {
-  res.send("This is working");
+  res.send({
+    messge: "This is working now",
+  });
 });
 
 app.post("/user", (req, res) => {
-  res.send("I got the data bro");
+  res.send({
+    message: "The data has been received",
+  });
   console.log(req.body);
 });
 

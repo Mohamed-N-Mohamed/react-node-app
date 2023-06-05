@@ -8,17 +8,12 @@ const Form = () => {
   });
 
   useEffect(() => {
-    // const fetchData = async () => {
-    //   const res = await fetch("/user");
-    //   const data = await res.json();
-
-    //   console.log(data);
-    // };
-    // fetchData()
-
-    fetch("/user")
-    .then((data) => data.json())
-    .then((data) => console.log(data));
+    const fetchData = async () => {
+      const res = await fetch("/user");
+      const data = await res.json();
+      console.log(data);
+    };
+    fetchData();
   }, []);
 
   const handleFormOnChange = (e) => {
@@ -33,20 +28,19 @@ const Form = () => {
   };
 
   const handleFormSubmit = async () => {
-    // try {
-    //   const response = await fetch("/user", {
-    //     method: "post",
-    //     headers: {
-    //       "Content-Type": "application/json",
-    //     },
-    //     body: JSON.stringify(formData),
-    //   });
-    //   // const data = await response.json();
-    //   // console.log(data);
-    //   console.log(response);
-    // } catch (error) {
-    //   console.log(error);
-    // }
+    try {
+      const response = await fetch("/user", {
+        method: "post",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+      const data = await response.json();
+      console.log(data);
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (
